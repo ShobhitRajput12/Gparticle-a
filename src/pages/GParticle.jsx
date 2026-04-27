@@ -7,7 +7,7 @@ import ControlPanel from '../components/GParticle/ControlPanel';
 
 export default function GParticle() {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
-  
+
   const [mode, setMode] = useState('neural');
   const [density, setDensity] = useState(50);
   const [speed, setSpeed] = useState(50);
@@ -22,8 +22,29 @@ export default function GParticle() {
   };
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col bg-[#020617] text-white selection:bg-cyan-500/30">
-      
+    <div className="relative flex min-h-screen w-full flex-col bg-[#020617] text-white selection:bg-[#ff6000]/30 font-sans">
+
+      {/* HEADER / NAVIGATION */}
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md bg-[#020617]/70 border-b border-white/10 pointer-events-auto">
+        <div className="flex items-center gap-2">
+          <div className="h-6 w-6 rounded border-[3px] border-[#ff6000] bg-transparent" />
+          <span className="text-xl font-bold tracking-tight text-white">Gparticle</span>
+        </div>
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+          <a href="#" className="hover:text-white transition-colors">Research</a>
+          <a href="#" className="hover:text-white transition-colors">Radar</a>
+          <a href="#" className="hover:text-white transition-colors">Docs</a>
+          <a href="#" className="hover:text-white transition-colors">Blog</a>
+          <a href="#" className="hover:text-white transition-colors">Download App</a>
+          <a href="#" className="hover:text-white transition-colors">About</a>
+        </nav>
+        <div className="flex items-center gap-4">
+          <button className="text-sm font-medium text-white hover:text-slate-300 px-2 transition-colors">Login</button>
+          <button className="rounded-full bg-[#ff6000] px-5 py-2 text-sm font-semibold text-white hover:bg-[#ff7b2b] transition-colors shadow-[0_0_15px_rgba(255,96,0,0.4)]">
+            Book a Demo
+          </button>
+        </div>
+      </header>
       {/* 3D Background - Fixed behind everything */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <Canvas camera={{ position: [0, 0, 15], fov: 60 }}>
@@ -32,61 +53,67 @@ export default function GParticle() {
           <ParticleSystem {...state} />
           <CameraShake yawFrequency={0.1} pitchFrequency={0.1} rollFrequency={0.1} intensity={0.5} />
         </Canvas>
-        
+
         {/* Subtle radial gradient overlay to merge canvas with HTML */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(2,6,23,0.8)_100%)] pointer-events-none" />
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-20 pointer-events-none">
+      <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-24 pointer-events-none">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
           className="flex w-full max-w-4xl flex-col items-center text-center pointer-events-auto"
         >
+          {/* Y Combinator Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.05, duration: 0.5 }}
+            className="mb-12 flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-400"
+          >
+            <span className="flex h-5 w-5 items-center justify-center rounded bg-[#ff6000] text-white text-[10px]">Y</span>
+            Backed by Y Combinator
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="mb-8 flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-5 py-2 text-sm font-medium text-cyan-200 shadow-[0_0_15px_rgba(0,238,255,0.1)] backdrop-blur-md"
+            className="mb-8 flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-xs font-medium tracking-widest text-slate-300 backdrop-blur-md uppercase"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500"></span>
-            </span>
-            gparticle system online
+            NEW RESEARCH →
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
-            className="mb-6 text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-slate-200 to-slate-500 sm:text-6xl md:text-[72px] md:leading-[1.1]"
+            className="mb-8 text-5xl font-serif tracking-tight text-white sm:text-6xl md:text-[76px] md:leading-[1.05]"
           >
-            Visualizing Intelligence <br className="hidden md:block" /> Through Particles.
+            Making every device an <br className="hidden md:block" /> <span className="whitespace-nowrap">AI-native</span> device.
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
-            className="mb-10 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl"
+            className="mb-12 max-w-2xl text-lg leading-relaxed text-slate-400"
           >
-            gparticle transforms complex data into interactive 3D particle systems.
+            We research and build inference engines from the metal up - custom kernels, operator fusion, unified memory optimization. For the hardware you already own.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
-            className="flex flex-col items-center justify-center gap-6 sm:flex-row"
+            className="flex flex-col items-center justify-center gap-8 sm:flex-row"
           >
-            <button 
-              onClick={scrollToDemo}
-              className="group relative flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-semibold text-[#020617] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(0,238,255,0.4)]"
+            <button
+              className="group relative flex items-center gap-2 rounded-full bg-[#ff6000] px-8 py-4 text-sm font-semibold text-white transition-all hover:scale-105 hover:bg-[#ff7b2b] hover:shadow-[0_0_30px_rgba(255,96,0,0.4)]"
             >
-              Explore Visualization
+              Read our research
               <motion.span
                 className="inline-block"
                 animate={{ x: [0, 4, 0] }}
@@ -95,8 +122,8 @@ export default function GParticle() {
                 →
               </motion.span>
             </button>
-            <button className="text-sm font-medium text-slate-300 transition-colors duration-200 hover:text-white">
-              Learn more
+            <button className="text-sm font-medium text-slate-400 transition-colors duration-200 hover:text-white">
+              About us
             </button>
           </motion.div>
         </motion.div>
@@ -104,19 +131,13 @@ export default function GParticle() {
 
 
 
-      {/* FOOTER */}
-      <footer className="relative z-10 w-full border-t border-white/5 bg-[#020617]/80 px-6 py-12 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl justify-center text-sm text-slate-500">
-          © 2026 gparticle. Built for AI visualization.
-        </div>
-      </footer>
 
       {/* Control Panel Overlay */}
-      <ControlPanel 
-        isOpen={isPanelOpen} 
-        onClose={() => setIsPanelOpen(false)} 
-        state={state} 
-        setters={setters} 
+      <ControlPanel
+        isOpen={isPanelOpen}
+        onClose={() => setIsPanelOpen(false)}
+        state={state}
+        setters={setters}
       />
 
       {/* Floating Playground Button */}
@@ -124,16 +145,14 @@ export default function GParticle() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.6 }}
-        className="fixed bottom-8 right-8 z-50"
+        className="fixed bottom-8 right-8 z-50 pointer-events-auto"
       >
-        <button 
+        <button
           onClick={() => setIsPanelOpen(!isPanelOpen)}
-          className="group flex h-14 items-center gap-3 rounded-full border border-white/10 bg-[#020617]/80 px-2 pr-6 text-white shadow-xl backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:border-cyan-500/50 hover:shadow-[0_0_20px_rgba(0,238,255,0.2)]"
+          className="group flex h-14 items-center gap-3 rounded-full bg-[#ff6000] px-4 pr-6 text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-[#ff7b2b] hover:shadow-[0_0_25px_rgba(255,96,0,0.5)]"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 group-hover:bg-cyan-500/20 transition-colors">
-            <span className="text-lg text-cyan-400">✺</span>
-          </div>
-          <span className="text-sm font-medium">Playground</span>
+          <span className="text-lg">▶</span>
+          <span className="text-sm font-semibold">Playground</span>
         </button>
       </motion.div>
     </div>
