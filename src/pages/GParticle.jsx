@@ -22,12 +22,12 @@ export default function GParticle() {
   };
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col bg-[#020617] text-white selection:bg-[#ff6000]/30 font-sans">
+    <div className="relative flex min-h-screen w-full flex-col bg-[#020617] text-white selection:bg-white/30 font-sans">
 
       {/* HEADER / NAVIGATION */}
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md bg-[#020617]/70 border-b border-white/10 pointer-events-auto">
         <div className="flex items-center gap-2">
-          <div className="h-6 w-6 rounded border-[3px] border-[#ff6000] bg-transparent" />
+          <div className="h-6 w-6 rounded border-[3px] border-white bg-transparent" />
           <span className="text-xl font-bold tracking-tight text-white">Gparticle</span>
         </div>
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
@@ -40,7 +40,7 @@ export default function GParticle() {
         </nav>
         <div className="flex items-center gap-4">
           <button className="text-sm font-medium text-white hover:text-slate-300 px-2 transition-colors">Login</button>
-          <button className="rounded-full bg-[#ff6000] px-5 py-2 text-sm font-semibold text-white hover:bg-[#ff7b2b] transition-colors shadow-[0_0_15px_rgba(255,96,0,0.4)]">
+          <button className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-black hover:bg-slate-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.4)]">
             Book a Demo
           </button>
         </div>
@@ -73,7 +73,7 @@ export default function GParticle() {
             transition={{ delay: 0.05, duration: 0.5 }}
             className="mb-12 flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-400"
           >
-            <span className="flex h-5 w-5 items-center justify-center rounded bg-[#ff6000] text-white text-[10px]">Y</span>
+            <span className="flex h-5 w-5 items-center justify-center rounded bg-white text-black text-[10px] font-bold">Y</span>
             Backed by Y Combinator
           </motion.div>
 
@@ -111,7 +111,7 @@ export default function GParticle() {
             className="flex flex-col items-center justify-center gap-8 sm:flex-row"
           >
             <button
-              className="group relative flex items-center gap-2 rounded-full bg-[#ff6000] px-8 py-4 text-sm font-semibold text-white transition-all hover:scale-105 hover:bg-[#ff7b2b] hover:shadow-[0_0_30px_rgba(255,96,0,0.4)]"
+              className="group relative flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-semibold text-black transition-all hover:scale-105 hover:bg-slate-200 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]"
             >
               Read our research
               <motion.span
@@ -149,7 +149,7 @@ export default function GParticle() {
       >
         <button
           onClick={() => setIsPanelOpen(!isPanelOpen)}
-          className="group flex h-14 items-center gap-3 rounded-full bg-[#ff6000] px-4 pr-6 text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-[#ff7b2b] hover:shadow-[0_0_25px_rgba(255,96,0,0.5)]"
+          className="group flex h-14 items-center gap-3 rounded-full bg-white px-4 pr-6 text-black shadow-xl transition-all duration-300 hover:scale-105 hover:bg-slate-200 hover:shadow-[0_0_25px_rgba(255,255,255,0.5)]"
         >
           <span className="text-lg">▶</span>
           <span className="text-sm font-semibold">Playground</span>
