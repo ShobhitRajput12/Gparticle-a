@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { CameraShake } from '@react-three/drei';
 import ParticleSystem from '../components/GParticle/ParticleSystem';
 import ControlPanel from '../components/GParticle/ControlPanel';
+import Footer from '../components/GParticle/Footer';
 
 export default function GParticle() {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
@@ -59,7 +60,7 @@ export default function GParticle() {
       </div>
 
       {/* HERO SECTION */}
-      <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-24 pointer-events-none">
+      <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-0 pointer-events-none">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -71,7 +72,7 @@ export default function GParticle() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.05, duration: 0.5 }}
-            className="mb-12 flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-400"
+            className="mb-8 flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-400"
           >
             <span className="flex h-5 w-5 items-center justify-center rounded bg-white text-black text-[10px] font-bold">Y</span>
             Backed by Y Combinator
@@ -90,7 +91,7 @@ export default function GParticle() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
-            className="mb-8 text-5xl font-serif tracking-tight text-white sm:text-6xl md:text-[76px] md:leading-[1.05]"
+            className="mb-6 text-5xl font-serif tracking-tight text-white sm:text-6xl md:text-[76px] md:leading-[1.05]"
           >
             Making every device an <br className="hidden md:block" /> <span className="whitespace-nowrap">AI-native</span> device.
           </motion.h1>
@@ -99,7 +100,7 @@ export default function GParticle() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
-            className="mb-12 max-w-2xl text-lg leading-relaxed text-slate-400"
+            className="mb-8 max-w-2xl text-lg leading-relaxed text-slate-400"
           >
             We research and build inference engines from the metal up - custom kernels, operator fusion, unified memory optimization. For the hardware you already own.
           </motion.p>
@@ -145,7 +146,7 @@ export default function GParticle() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.6 }}
-        className="fixed bottom-8 right-8 z-50 pointer-events-auto"
+        className="fixed bottom-20 right-8 z-50 pointer-events-auto"
       >
         <button
           onClick={() => setIsPanelOpen(!isPanelOpen)}
@@ -155,6 +156,8 @@ export default function GParticle() {
           <span className="text-sm font-semibold">Playground</span>
         </button>
       </motion.div>
+
+      <Footer />
     </div>
   );
 }
