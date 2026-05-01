@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Settings2, Sparkles, Activity, Layers } from 'lucide-react';
+import { X, Settings2, Globe, Activity, Layers } from 'lucide-react';
 
 export default function ControlPanel({ isOpen, onClose, state, setters }) {
   if (!isOpen) return null;
@@ -44,7 +44,7 @@ export default function ControlPanel({ isOpen, onClose, state, setters }) {
                 >
                   {m === 'neural' && <Activity size={18} />}
                   {m === 'grid' && <Layers size={18} />}
-                  {m === 'sphere' && <Sparkles size={18} />}
+                  {m === 'sphere' && <Globe size={18} />}
                   <span className="text-[10px] uppercase font-bold tracking-wider">{m}</span>
                 </button>
               ))}
