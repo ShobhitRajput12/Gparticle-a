@@ -10,7 +10,7 @@ import Footer from '../components/GParticle/Footer';
 export default function GParticle() {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
 
-  const [mode, setMode] = useState('sphere');
+  const [mode, setMode] = useState('neural');
   const [density, setDensity] = useState(50);
   const [speed, setSpeed] = useState(50);
   const [theme, setTheme] = useState('cyan');
